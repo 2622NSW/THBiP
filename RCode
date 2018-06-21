@@ -1,0 +1,25 @@
+# a basic format for ggplot visualisation
+library (ggplot2)
+library (ggrepel)
+df1 <- read.csv("BiP20.csv")
+#using colour scheme ideas from http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf
+ggplot(df1, aes(x=Temp, y=Humidity, label=Game)) + geom_point(colour="dodgerblue3", size=2) +
+  geom_smooth(method = "lm", colour="black", size=1) +
+  ggtitle("Temperature and Humidity", subtitle = "After 20 games at 2018 World Cup") +xlab("Temperature (C)") + ylab("Humidity (%)") +
+  scale_x_continuous() +
+  geom_label_repel(size=2) +
+  theme_minimal()
+#using colour scheme ideas from http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf  
+ggplot(df1, aes(x=Humidity, y=BiP, label=Game)) + geom_point(colour="forestgreen", size=2) +
+  geom_smooth(method = "lm", colour="black", size=1) +
+  ggtitle("Humidity and Ball in Play Time", subtitle = "After 20 games at 2018 World Cup") +xlab("Humidity(%)") + ylab("Ball in Play (Minutes)") +
+  scale_x_continuous() +
+  geom_label_repel(size=2) +
+  theme_minimal()
+#using colour scheme ideas from http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf  
+ggplot(df1, aes(x=Temp, y=BiP, label=Game)) + geom_point(colour="darkorchid", size=2) +
+  geom_smooth(method = "lm", colour="black", size=1) +
+  ggtitle("Temperature and Ball in Play Time", subtitle = "After 20 games at 2018 World Cup") +xlab("Temperature (C)") + ylab("Ball in Play (Minutes)") +
+  scale_x_continuous() +
+  geom_label_repel(size=2) +
+  theme_minimal()
